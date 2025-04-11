@@ -1,12 +1,12 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Navbar from './Navbar';
-import Login from './Login';
-import Register from './Register';
-import StoreList from './StoreList';
-import StoreOwnerDashboard from './StoreOwnerDashboard';
-import AdminDashboard from './AdminDashboard';
+import Navbar from './components/Navbar';
+import Login from './components/Login';
+import Register from './components/Register';
+import StoreList from './components/StoreList';
+import StoreOwnerDashboard from './components/StoreOwnerDashboard';
+import AdminDashboard from './components/AdminDashboard';
 
 const App = () => {
     return (
