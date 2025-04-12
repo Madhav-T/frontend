@@ -1,0 +1,177 @@
+/* frontend/src/components/AdminDashboard.css */
+.admin-dashboard {
+    height: 100vh;
+    width: 100%;
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+.admin-dashboard .add-form select {
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23343a40" viewBox="0 0 4 5"><path d="M2 0L0 2h4L2 0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 5px;
+    padding-right: 20px;
+}
+
+.admin-dashboard h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.admin-dashboard p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.admin-dashboard button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.admin-dashboard button:hover {
+    background-color: #0056b3;
+}
+
+.admin-dashboard h3 {
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.admin-dashboard ul {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-dashboard ul li {
+    border: 1px solid #ddd;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-dashboard ul li:hover {
+    background-color: #eee;
+}
+
+.admin-dashboard ul li.expanded {
+    background-color: #e9ecef;
+}
+
+.admin-dashboard .user-details {
+    margin-top: 10px;
+    padding-left: 20px;
+    color: #777;
+}
+
+.admin-dashboard .filters {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.admin-dashboard .filters input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.admin-dashboard .add-form {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.admin-dashboard .add-form h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.admin-dashboard .add-form .form-group {
+    margin-bottom: 10px;
+}
+
+.admin-dashboard .add-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+.admin-dashboard .add-form input[type="text"],
+.admin-dashboard .add-form input[type="email"],
+.admin-dashboard .add-form input[type="password"],
+.admin-dashboard .add-form input[type="number"],
+.admin-dashboard .add-form textarea,
+.admin-dashboard .add-form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.admin-dashboard .add-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23343a40" viewBox="0 0 4 5"><path d="M2 0L0 2h4L2 0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 5px;
+    padding-right: 20px;
+}
+
+.admin-dashboard .add-form button[type="submit"],
+.admin-dashboard .add-form button[type="button"] {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.admin-dashboard .add-form button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+}
+
+.admin-dashboard .add-form button[type="submit"]:hover {
+    background-color: #1e7e34;
+}
+
+.admin-dashboard .add-form button[type="button"] {
+    background-color: #dc3545;
+    color: white;
+}
+
+.admin-dashboard .add-form button[type="button"]:hover {
+    background-color: #c82333;
+}
+
+.admin-dashboard .error-message {
+    color: red;
+    margin-bottom: 10px;
+}

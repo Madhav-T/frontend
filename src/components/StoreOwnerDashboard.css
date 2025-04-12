@@ -1,0 +1,44 @@
+/* src/StoreOwnerDashboard.css */
+
+div {
+    margin: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 12px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space out user ID and rating */
+    align-items: center; /* Vertically center items */
+  }
+  
+  li strong {
+    color: #4CAF50; /* Strong color for "User ID:" */
+  }
+  
