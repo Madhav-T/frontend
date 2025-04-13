@@ -1,22 +1,35 @@
-// src/Navbar.js
+// src/components/Navbar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import './Navbar.css'; // You might have a CSS file for the navbar
 
-const Navbar = () => {
+const Navbar = ({ isLoggedIn, userRole, onLogout }) => {
+    const history = useHistory();
+
     const handleLogout = () => {
-        localStorage.removeItem('token');
-        window.location.href = '/'; // Redirect to login page
+        onLogout();
+        history.push('/'); // Redirect to the login page after logout
     };
 
     return (
-        <nav>
+        <nav className="navbar">
             <ul>
-                <li><Link to="/">Login</Link></li>
-                <li><Link to="/register">Register</Link></li>
-                <li><Link to="/stores">Store List</Link></li>
-                <li><Link to="/store-owner-dashboard">Store Owner Dashboard</Link></li>
-                <li><Link to="/admin-dashboard">Admin Dashboard</Link></li>
-                <li><button onClick={handleLogout}>Logout</button></li>
+                <li><Link to="/">Home</Link></li>
+                {isLoggedIn && (
+                    <>
+                        <li><Link to="/stores">Stores</Link></li>
+                        <li><Link to="/update-password">Update Password</Link></li>
+                        {userRole === 'admin' && <li><Link to="/admin-dashboard">Admin Dashboard</Link></li>}
+                        {userRole === 'normal' && <li><Link to="/store-owner-dashboard">Owner Dashboard</Link></li>}
+                        <li><button onClick={handleLogout}>Logout</button></li>
+                    </>
+                )}
+                {!isLoggedIn && (
+                    <>
+                        <li><Link to="/">Login</Link></li>
+                        <li><Link to="/register">Register</Link></li>
+                    </>
+                )}
             </ul>
         </nav>
     );
