@@ -1,65 +1,75 @@
-/* src/StoreList.css */
+/* src/components/StoreList.css */
 
-div {
-    margin: 20px;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  input[type="text"] {
-    width: 100%;
-    max-width: 400px;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    background-color: white;
-    margin-bottom: 15px;
-    padding: 15px;
-    border: 1px solid #eee;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  }
-  
-  h3 {
-    color: #4CAF50; /* Green for store name */
-    margin-bottom: 5px;
-  }
-  
-  p {
-    color: #666;
-    margin-bottom: 10px;
-  }
-  
-  button {
-    background-color: #007bff; /* Blue buttons */
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 5px;
-    transition: background-color 0.3s ease; /* Smooth transition */
-  }
-  
-  button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-  }
-  
+.store-list-container {
+  width: 100%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.store-list-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.store-search-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 25px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.store-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.store-item {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.store-item h3 {
+  margin: 0 0 8px;
+}
+
+.store-item p {
+  margin: 5px 0;
+}
+
+.rating-buttons button,
+.modify-buttons button {
+  margin: 5px 3px;
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.rating-buttons button:hover,
+.modify-buttons button:hover {
+  background-color: #0056b3;
+}
+
+.modify-rating-input {
+  width: 60px;
+  padding: 5px;
+  margin-right: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

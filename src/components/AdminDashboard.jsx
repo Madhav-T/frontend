@@ -33,17 +33,14 @@ const AdminDashboard = () => {
                 const usersResponse = await axios.get('http://localhost:3000/api/users', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
-                console.log("Users Response Data:", usersResponse.data); // LOG USERS DATA
 
                 const storesResponse = await axios.get('http://localhost:3000/api/stores', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
-                console.log("Stores Response Data:", storesResponse.data); // LOG STORES DATA
 
                 const ratingsResponse = await axios.get('http://localhost:3000/api/ratings', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
-                console.log("Ratings Response Data:", ratingsResponse.data); // LOG RATINGS DATA
 
                 setUsers(usersResponse.data);
                 setStores(storesResponse.data);
@@ -51,15 +48,8 @@ const AdminDashboard = () => {
                 setTotalStores(storesResponse.data.length);
                 setTotalRatings(ratingsResponse.data.length);
 
-                console.log("Users State:", users); // LOG USERS STATE AFTER SETTING
-                console.log("Stores State:", stores); // LOG STORES STATE AFTER SETTING
-                console.log("Total Users State:", totalUsers); // LOG TOTAL USERS STATE
-                console.log("Total Stores State:", totalStores); // LOG TOTAL STORES STATE
-                console.log("Total Ratings State:", totalRatings); // LOG TOTAL RATINGS STATE
-
             } catch (error) {
                 console.error("Error fetching data:", error);
-                // Handle error appropriately (e.g., display an error message)
             }
         };
         fetchData();
@@ -102,7 +92,6 @@ const AdminDashboard = () => {
             (user.role?.toLowerCase() || '').includes(userFilters.role.toLowerCase())
         );
     });
-    console.log("Filtered Users:", filteredUsers); // LOG FILTERED USERS
 
     const filteredStores = stores.filter(store => {
         return (
@@ -111,7 +100,6 @@ const AdminDashboard = () => {
             store.address.toLowerCase().includes(storeFilters.address.toLowerCase())
         );
     });
-    console.log("Filtered Stores:", filteredStores); // LOG FILTERED STORES
 
     return (
         <div className="admin-dashboard">
@@ -120,7 +108,7 @@ const AdminDashboard = () => {
             <p>Total Stores: {totalStores}</p>
             <p>Total Ratings: {totalRatings}</p>
 
-            <div>
+            <div className="admin-dashboard-buttons">
                 <button onClick={handleAddUserClick}>Add New User</button>
                 <button onClick={handleAddStoreClick}>Add New Store</button>
             </div>
@@ -135,14 +123,13 @@ const AdminDashboard = () => {
                 <input type="text" placeholder="Filter by Address" name="address" value={userFilters.address} onChange={handleUserFilterChange} />
                 <input type="text" placeholder="Filter by Role" name="role" value={userFilters.role} onChange={handleUserFilterChange} />
             </div>
-            <ul>
+            <ul className="users-list">
                 {filteredUsers.map(user => (
                     <li key={user.id} onClick={() => toggleUserDetails(user.id)} className={expandedUserId === user.id ? 'expanded' : ''}>
-                        {user.name} - {user.email} - Role: {user.role}
+                        <span>{user.name} - {user.email} - Role: {user.role}</span>
                         {expandedUserId === user.id && (
                             <div className="user-details">
                                 <p>Address: {user.address}</p>
-                                {/* We'll add the store owner rating here later */}
                             </div>
                         )}
                     </li>
@@ -155,9 +142,11 @@ const AdminDashboard = () => {
                 <input type="text" placeholder="Filter by Email" name="email" value={storeFilters.email} onChange={handleStoreFilterChange} />
                 <input type="text" placeholder="Filter by Address" name="address" value={storeFilters.address} onChange={handleStoreFilterChange} />
             </div>
-            <ul>
+            <ul className="stores-list">
                 {filteredStores.map(store => (
-                    <li key={store.id}>{store.name} - {store.address} - Email: {store.email || 'N/A'} - Rating: {store.rating || 'No ratings yet'}</li>
+                    <li key={store.id}>
+                        <span>{store.name} - {store.address} - Email: {store.email || 'N/A'} - Rating: {store.rating || 'No ratings yet'}</span>
+                    </li>
                 ))}
             </ul>
         </div>
@@ -169,7 +158,7 @@ const AddUserForm = ({ onClose }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [address, setAddress] = useState('');
-    const [role, setRole] = useState('normal'); // Default to normal user
+    const [role, setRole] = useState('normal');
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleSubmit = async (e) => {
@@ -181,7 +170,6 @@ const AddUserForm = ({ onClose }) => {
             });
             window.location.reload();
         } catch (error) {
-            console.error("Error adding user:", error.response ? error.response.data : error.message);
             setErrorMessage(error.response ? error.response.data.message : 'Failed to add user.');
         }
     };
@@ -237,7 +225,6 @@ const AddStoreForm = ({ onClose }) => {
             });
             window.location.reload();
         } catch (error) {
-            console.error("Error adding store:", error.response ? error.response.data : error.message);
             setErrorMessage(error.response ? error.response.data.message : 'Failed to add store.');
         }
     };

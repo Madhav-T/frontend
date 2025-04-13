@@ -85,7 +85,6 @@ const StoreList = () => {
                 { storeId, rating }, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
-            // No need to fetchStores immediately, WebSocket will handle the update
             alert(`You rated store ${storeId} with ${rating} stars!`);
         } catch (error) {
             console.error("Error submitting rating:", error);
@@ -112,7 +111,6 @@ const StoreList = () => {
                         headers: { Authorization: `Bearer ${token}` }
                     });
                 setRatingToModify(null);
-                // No need to fetchStores, WebSocket will handle the update
                 alert(`Your rating for store ${storeId} has been updated to ${rating} stars!`);
             } catch (error) {
                 console.error("Error updating rating:", error.response?.data || error.message);
@@ -124,35 +122,37 @@ const StoreList = () => {
     };
 
     return (
-        <div>
+        <div className="store-list-container">
             <h2>Store List</h2>
             <input
+                className="store-search-input"
                 type="text"
                 placeholder="Search by name or address"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <ul>
+            <ul className="store-list">
                 {stores.filter(store => store.name.toLowerCase().includes(searchTerm.toLowerCase()) || store.address.toLowerCase().includes(searchTerm.toLowerCase())).map(store => (
-                    <li key={store.id}>
+                    <li key={store.id} className="store-item">
                         <h3>{store.name}</h3>
                         <p>{store.address}</p>
                         <p>Overall Rating: {store.rating || 'No ratings yet'}</p>
                         <p>Your Rating: {store.userRating || 'Not rated yet'}</p>
                         {!store.userRating ? (
-                            <>
+                            <div className="rating-buttons">
                                 <button onClick={() => handleRatingSubmit(store.id, 5)}>Rate 5</button>
                                 <button onClick={() => handleRatingSubmit(store.id, 4)}>Rate 4</button>
                                 <button onClick={() => handleRatingSubmit(store.id, 3)}>Rate 3</button>
                                 <button onClick={() => handleRatingSubmit(store.id, 2)}>Rate 2</button>
                                 <button onClick={() => handleRatingSubmit(store.id, 1)}>Rate 1</button>
-                            </>
+                            </div>
                         ) : (
-                            <>
+                            <div className="modify-buttons">
                                 <button onClick={() => handleModifyRatingClick(store.id)}>Modify Rating</button>
                                 {ratingToModify === store.id && (
                                     <div>
                                         <input
+                                            className="modify-rating-input"
                                             type="number"
                                             min="1"
                                             max="5"
@@ -163,7 +163,7 @@ const StoreList = () => {
                                         <button onClick={() => setRatingToModify(null)}>Cancel</button>
                                     </div>
                                 )}
-                            </>
+                            </div>
                         )}
                     </li>
                 ))}

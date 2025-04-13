@@ -31,8 +31,8 @@ const StoreOwnerDashboard = () => {
                     setOwnedStoresData(prevData => {
                         return prevData.map(storeData => {
                             if (storeData.storeId === data.storeId) {
-                                const updatedRatings = storeData.ratings.filter(rating => rating.user_id !== data.userId); // Remove previous rating by the same user
-                                updatedRatings.push({ rating: data.rating, userName: data.userName, user_id: data.userId }); // Add the new/updated rating
+                                const updatedRatings = storeData.ratings.filter(rating => rating.user_id !== data.userId);
+                                updatedRatings.push({ rating: data.rating, userName: data.userName, user_id: data.userId });
                                 const totalRating = updatedRatings.reduce((sum, r) => sum + r.rating, 0);
                                 const averageRating = updatedRatings.length > 0 ? (totalRating / updatedRatings.length).toFixed(2) : '0.00';
                                 return { ...storeData, averageRating, ratings: updatedRatings };
@@ -69,28 +69,28 @@ const StoreOwnerDashboard = () => {
 
     return (
         <div className="store-owner-dashboard">
-            <h2>Store Owner Dashboard</h2>
+            <h2 className="dashboard-title">Store Owner Dashboard</h2>
             {ownedStoresData.length > 0 ? (
                 ownedStoresData.map(storeData => (
                     <div key={storeData.storeId} className="store-info">
-                        <h3>{storeData.storeName}</h3>
-                        <p>Average Rating: {storeData.averageRating}</p>
-                        <h4>Ratings Received:</h4>
+                        <h3 className="store-name">{storeData.storeName}</h3>
+                        <p className="average-rating">Average Rating: {storeData.averageRating}</p>
+                        <h4 className="ratings-title">Ratings Received:</h4>
                         {storeData.ratings.length > 0 ? (
-                            <ul>
+                            <ul className="ratings-list">
                                 {storeData.ratings.map((rating, index) => (
-                                    <li key={index}>
-                                        User: {rating.userName} - Rating: {rating.rating}
+                                    <li key={index} className="rating-item">
+                                        User: <span className="user-name">{rating.userName}</span> - Rating: <span className="user-rating">{rating.rating}</span>
                                     </li>
                                 ))}
                             </ul>
                         ) : (
-                            <p>No ratings received yet for this store.</p>
+                            <p className="no-ratings">No ratings received yet for this store.</p>
                         )}
                     </div>
                 ))
             ) : (
-                <p>No stores owned by you.</p>
+                <p className="no-stores">No stores owned by you.</p>
             )}
         </div>
     );

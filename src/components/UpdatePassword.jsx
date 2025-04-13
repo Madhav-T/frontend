@@ -38,7 +38,7 @@ const UpdatePassword = () => {
             setOldPassword('');
             setNewPassword('');
             setConfirmNewPassword('');
-            setTimeout(() => history.push('/stores'), 2000); // Redirect after 2 seconds
+            setTimeout(() => history.push('/stores'), 2000);
         } catch (error) {
             setError(error.response?.data || 'Failed to update password.');
         }
@@ -46,10 +46,10 @@ const UpdatePassword = () => {
 
     return (
         <div className="update-password-container">
-            <h2>Update Password</h2>
+            <h2 className="form-title">Update Password</h2>
             {message && <p className="success-message">{message}</p>}
             {error && <p className="error-message">{error}</p>}
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="update-password-form">
                 <div className="form-group">
                     <label htmlFor="oldPassword">Old Password:</label>
                     <input
@@ -57,6 +57,7 @@ const UpdatePassword = () => {
                         id="oldPassword"
                         value={oldPassword}
                         onChange={(e) => setOldPassword(e.target.value)}
+                        className="input-field"
                         required
                     />
                 </div>
@@ -67,6 +68,7 @@ const UpdatePassword = () => {
                         id="newPassword"
                         value={newPassword}
                         onChange={(e) => setNewPassword(e.target.value)}
+                        className="input-field"
                         required
                     />
                 </div>
@@ -77,6 +79,7 @@ const UpdatePassword = () => {
                         id="confirmNewPassword"
                         value={confirmNewPassword}
                         onChange={(e) => setConfirmNewPassword(e.target.value)}
+                        className="input-field"
                         required
                     />
                 </div>

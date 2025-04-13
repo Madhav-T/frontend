@@ -1,177 +1,178 @@
-/* frontend/src/components/AdminDashboard.css */
+/* AdminDashboard.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
 .admin-dashboard {
-    height: 100vh;
     width: 100%;
+    margin: 20px auto;
     padding: 20px;
-    font-family: sans-serif;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
 
-.admin-dashboard .add-form select {
-    -moz-appearance: none; /* Firefox */
-    -webkit-appearance: none; /* Safari and Chrome */
-    appearance: none;
-    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23343a40" viewBox="0 0 4 5"><path d="M2 0L0 2h4L2 0z"/></svg>');
-    background-repeat: no-repeat;
-    background-position-x: 100%;
-    background-position-y: 5px;
-    padding-right: 20px;
-}
-
-.admin-dashboard h2 {
+h2 {
+    font-size: 2rem;
     color: #333;
     margin-bottom: 20px;
 }
 
-.admin-dashboard p {
-    margin-bottom: 10px;
+h3 {
+    font-size: 1.5rem;
     color: #555;
+    margin-top: 20px;
 }
 
-.admin-dashboard button {
-    padding: 10px 15px;
-    margin-right: 10px;
+p {
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Buttons */
+button {
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
     cursor: pointer;
-    font-size: 16px;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.admin-dashboard button:hover {
+button:hover {
     background-color: #0056b3;
 }
 
-.admin-dashboard h3 {
-    color: #333;
+button:focus {
+    outline: none;
+}
+
+/* Add User / Store Form Styles */
+.add-form {
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
+}
+
+.add-form h3 {
+    font-size: 1.8rem;
+    color: #333;
     margin-bottom: 10px;
 }
 
-.admin-dashboard ul {
-    list-style: none;
+.add-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-form label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.add-form input,
+.add-form select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.add-form button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.add-form .error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* Filters Section */
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filters input {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
+}
+
+/* Users List */
+ul {
+    list-style-type: none;
     padding: 0;
 }
 
-.admin-dashboard ul li {
-    border: 1px solid #ddd;
-    margin-bottom: 8px;
+li {
+    background-color: #f9f9f9;
+    margin: 10px 0;
     padding: 10px;
     border-radius: 5px;
-    background-color: #f9f9f9;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+li:hover {
+    background-color: #f0f0f0;
+}
+
+li.expanded {
+    background-color: #e7e7e7;
+}
+
+.user-details {
+    margin-top: 10px;
+    padding-left: 20px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Stores List */
+ul li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.admin-dashboard ul li:hover {
-    background-color: #eee;
-}
-
-.admin-dashboard ul li.expanded {
-    background-color: #e9ecef;
-}
-
-.admin-dashboard .user-details {
-    margin-top: 10px;
-    padding-left: 20px;
-    color: #777;
-}
-
-.admin-dashboard .filters {
-    margin-bottom: 15px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.admin-dashboard .filters input[type="text"] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.admin-dashboard .add-form {
-    margin-top: 20px;
-    padding: 15px;
-    border: 1px solid #ccc;
+    padding: 10px;
     border-radius: 5px;
-    background-color: white;
+    margin: 10px 0;
+    background-color: #f9f9f9;
 }
 
-.admin-dashboard .add-form h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    color: #333;
+ul li:hover {
+    background-color: #f0f0f0;
 }
 
-.admin-dashboard .add-form .form-group {
-    margin-bottom: 10px;
-}
-
-.admin-dashboard .add-form label {
-    display: block;
-    margin-bottom: 5px;
+ul li span {
+    font-size: 0.9rem;
     color: #555;
+}
+
+ul li .rating {
     font-weight: bold;
-}
-
-.admin-dashboard .add-form input[type="text"],
-.admin-dashboard .add-form input[type="email"],
-.admin-dashboard .add-form input[type="password"],
-.admin-dashboard .add-form input[type="number"],
-.admin-dashboard .add-form textarea,
-.admin-dashboard .add-form select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    box-sizing: border-box;
-}
-
-.admin-dashboard .add-form select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23343a40" viewBox="0 0 4 5"><path d="M2 0L0 2h4L2 0z"/></svg>');
-    background-repeat: no-repeat;
-    background-position-x: 100%;
-    background-position-y: 5px;
-    padding-right: 20px;
-}
-
-.admin-dashboard .add-form button[type="submit"],
-.admin-dashboard .add-form button[type="button"] {
-    padding: 10px 15px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.admin-dashboard .add-form button[type="submit"] {
-    background-color: #28a745;
-    color: white;
-}
-
-.admin-dashboard .add-form button[type="submit"]:hover {
-    background-color: #1e7e34;
-}
-
-.admin-dashboard .add-form button[type="button"] {
-    background-color: #dc3545;
-    color: white;
-}
-
-.admin-dashboard .add-form button[type="button"]:hover {
-    background-color: #c82333;
-}
-
-.admin-dashboard .error-message {
-    color: red;
-    margin-bottom: 10px;
+    color: #333;
 }

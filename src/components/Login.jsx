@@ -17,7 +17,7 @@ const Login = ({ onLoginSuccess }) => {
             const response = await axios.post('http://localhost:3000/api/login', { email, password });
             const { token, role } = response.data;
             onLoginSuccess(token, role);
-            localStorage.setItem('user', JSON.stringify({ email: response.data.email, id: response.data.userId })); // Store user info if needed
+            localStorage.setItem('user', JSON.stringify({ email: response.data.email, id: response.data.userId }));
             if (role === 'admin') {
                 history.push('/admin-dashboard');
             } else {
