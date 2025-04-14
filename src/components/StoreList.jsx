@@ -14,7 +14,7 @@ const StoreList = () => {
         const fetchStores = async () => {
             const token = localStorage.getItem('token');
             try {
-                const response = await axios.get('http://localhost:3000/api/stores', {
+                const response = await axios.get('https://backend-store-9fzw.onrender.com/api/stores', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setStores(response.data);
@@ -68,7 +68,7 @@ const StoreList = () => {
     const fetchStores = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await axios.get('http://localhost:3000/api/stores', {
+            const response = await axios.get('https://backend-store-9fzw.onrender.com/api/stores', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setStores(response.data);
@@ -81,7 +81,7 @@ const StoreList = () => {
     const handleRatingSubmit = async (storeId, rating) => {
         const token = localStorage.getItem('token');
         try {
-            await axios.post(`http://localhost:3000/api/rate`,
+            await axios.post(`https://backend-store-9fzw.onrender.com/api/rate`,
                 { storeId, rating }, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
@@ -106,7 +106,7 @@ const StoreList = () => {
         const rating = parseInt(newRatingValue);
         if (rating >= 1 && rating <= 5) {
             try {
-                await axios.put(`http://localhost:3000/api/rate/update`,
+                await axios.put(`https://backend-store-9fzw.onrender.com/api/rate/update`,
                     { storeId, newRating: rating }, {
                         headers: { Authorization: `Bearer ${token}` }
                     });

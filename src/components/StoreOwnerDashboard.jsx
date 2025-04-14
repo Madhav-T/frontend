@@ -12,7 +12,7 @@ const StoreOwnerDashboard = () => {
         const fetchOwnerDashboardData = async () => {
             const token = localStorage.getItem('token');
             try {
-                const response = await axios.get('http://localhost:3000/api/owner/dashboard', {
+                const response = await axios.get('https://backend-store-9fzw.onrender.com/api/owner/dashboard', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setOwnedStoresData(response.data);

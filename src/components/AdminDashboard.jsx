@@ -30,15 +30,15 @@ const AdminDashboard = () => {
         const fetchData = async () => {
             const token = localStorage.getItem('token');
             try {
-                const usersResponse = await axios.get('http://localhost:3000/api/users', {
+                const usersResponse = await axios.get('https://backend-store-9fzw.onrender.com/api/users', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 
-                const storesResponse = await axios.get('http://localhost:3000/api/stores', {
+                const storesResponse = await axios.get('https://backend-store-9fzw.onrender.com/api/stores', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 
-                const ratingsResponse = await axios.get('http://localhost:3000/api/ratings', {
+                const ratingsResponse = await axios.get('https://backend-store-9fzw.onrender.com/api/ratings', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 
@@ -165,7 +165,7 @@ const AddUserForm = ({ onClose }) => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            await axios.post('http://localhost:3000/api/register', { name, email, password, address, role }, {
+            await axios.post('https://backend-store-9fzw.onrender.com/api/register', { name, email, password, address, role }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             window.location.reload();
@@ -220,7 +220,7 @@ const AddStoreForm = ({ onClose }) => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            await axios.post('http://localhost:3000/api/stores', { ownerId, name, address, email }, {
+            await axios.post('https://backend-store-9fzw.onrender.com/api/stores', { ownerId, name, address, email }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             window.location.reload();

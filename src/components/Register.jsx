@@ -17,7 +17,7 @@ const Register = () => {
         e.preventDefault();
         setError('');
         try {
-            await axios.post('http://localhost:3000/api/register', { name, email, password, address, role });
+            await axios.post('https://backend-store-9fzw.onrender.com/api/register', { name, email, password, address, role });
             history.push('/'); // Redirect to login after successful registration
         } catch (error) {
             setError(error.response?.data?.message || 'Registration failed. Please try again.');
