@@ -14,7 +14,7 @@ const Login = ({ onLoginSuccess }) => {
         e.preventDefault();
         setError('');
         try {
-            const response = await axios.post('http://localhost:3000/api/login', { email, password });
+            const response = await axios.post('https://backend-store-9fzw.onrender.com/api/login', { email, password });
             const { token, role } = response.data;
             onLoginSuccess(token, role);
             localStorage.setItem('user', JSON.stringify({ email: response.data.email, id: response.data.userId }));
