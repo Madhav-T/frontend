@@ -30,7 +30,7 @@ const UpdatePassword = () => {
 
         try {
             const response = await axios.post(
-                'http://localhost:3000/api/user/password',
+                'https://backend-store-9fzw.onrender.com/api/user/password',
                 { oldPassword, newPassword },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
